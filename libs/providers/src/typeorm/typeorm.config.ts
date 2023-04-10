@@ -17,7 +17,9 @@ const options = (): DataSourceOptions => {
     type: 'postgres',
     schema: 'public',
     logging: !JSON.parse(configService.get('IS_PROD')),
-    entities: [],
+    entities: [
+      join(process.cwd(), 'dist', 'libs', 'entities', '**', '*.entity.{ts,js}'),
+    ],
     migrations: [join(process.cwd(), 'migrations', '**', '*migration.ts')],
     migrationsRun: true,
     migrationsTableName: 'migrations',
