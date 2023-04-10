@@ -3,7 +3,6 @@ import { Column, Entity, PrimaryColumn } from 'typeorm';
 @Entity('posts')
 export class PostEntity {
   @PrimaryColumn('uuid')
-  @Column()
   id: string;
 
   @Column()
