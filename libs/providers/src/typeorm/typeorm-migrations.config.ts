@@ -17,8 +17,11 @@ const options = (): DataSourceOptions => {
     url,
     type: 'postgres',
     schema: 'public',
-    logging: !JSON.parse(configService.get('IS_PROD')),
-    entities: ENTITIES,
+    logging: !JSON.parse(configService.get<string>('IS_PROD')),
+    entities: [
+      join(process.cwd(), 'dist', 'libs', 'entities', '**', '*.entity.{ts,js}'),
+    ],
+    migrations: [join(process.cwd(), 'migrations', '**', '*migration.js')],
     migrationsRun: true,
     migrationsTableName: 'migrations',
   };

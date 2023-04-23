@@ -10,10 +10,11 @@ import {
 } from 'class-validator';
 import { Exclude } from 'class-transformer';
 import { DomainError } from '@lib/errors';
+import { randomUUID } from 'crypto';
 
 export class PostAggregate extends PostServices implements IPost {
   @IsUUID()
-  id: string = randomStringGenerator();
+  id: string = randomUUID();
 
   @IsString()
   @IsNotEmpty()
@@ -29,7 +30,7 @@ export class PostAggregate extends PostServices implements IPost {
 
   @IsBoolean()
   @Exclude()
-  published = false;
+  isPublished = false;
 
   @IsString()
   createdAt = new Date().toISOString();

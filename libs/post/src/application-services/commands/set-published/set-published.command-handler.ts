@@ -1,5 +1,5 @@
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
-import { SetPublishedCommand } from '@lib/post/application-services/commands/set-published/set-published.command';
+import { SetPublishedCommand } from './set-published.command';
 import { PostAggregate } from '@lib/post';
 import { PostRepository } from '@lib/post/providers';
 import { BadRequestException, Logger } from '@nestjs/common';

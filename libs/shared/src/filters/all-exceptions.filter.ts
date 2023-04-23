@@ -6,7 +6,6 @@ import {
   HttpStatus,
   Logger,
 } from '@nestjs/common';
-
 import { Request } from 'express';
 
 @Catch()
@@ -26,14 +25,14 @@ export class AllExceptionsFilter<T> implements ExceptionFilter {
     response.status(status).json(this._response(status, request, exception));
   }
 
-  private _response(status: number, req: Request, exception: any) {
+  private _response(status: number, request: Request, exception: any) {
     return {
       statusCode: status,
       timestamp: new Date().toISOString(),
-      path: req?.url,
-      method: req?.method,
-      params: req?.params,
-      query: req?.query,
+      path: request?.url,
+      method: request?.method,
+      params: request?.params,
+      query: request?.query,
       exception: {
         name: exception['name'],
         message: exception['message'],

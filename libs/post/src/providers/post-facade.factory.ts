@@ -1,5 +1,5 @@
 import { CommandBus, EventBus, QueryBus } from '@nestjs/cqrs';
-import { PostFacade } from '@lib/post/application-services';
+import { PostFacade } from '../application-services';
 
 export const postFacadeFactory = (
   commandBus: CommandBus,
