@@ -1,4 +1,4 @@
-import { Injectable, Logger, NotFoundException } from '@nestjs/common';
+import { Injectable, Logger } from '@nestjs/common';
 import { PostRepository } from '@lib/post/providers/post.repository';
 import { PaginationDto } from '@lib/shared/dto';
 import { IPost, PostAggregate } from '@lib/post';
@@ -55,7 +55,6 @@ export class PostAdapter implements PostRepository {
         return null;
       });
     if (!existPost) {
-      // throw new NotFoundException(`Post by id ${id} not found`);
       return null;
     }
     return PostAggregate.create(existPost);
