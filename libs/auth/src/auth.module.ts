@@ -3,8 +3,8 @@ import { AuthService } from './auth.service';
 import { PassportModule } from '@nestjs/passport';
 import { JwtModule } from '@nestjs/jwt';
 import { jwtFactory } from './config';
-import { GUARDS } from '@lib/auth/guards';
-import { STRATEGIES } from '@lib/auth/strategies';
+import { GUARDS } from './guards';
+import { STRATEGIES } from './strategies';
 
 @Module({
   imports: [
