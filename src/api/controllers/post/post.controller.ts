@@ -9,7 +9,7 @@ import {
 } from '@nestjs/common';
 import { PostFacade } from '@lib/post/application-services';
 import { CreatePostDto } from './dto';
-import { CurrentUser, ICurrentUser } from '@lib/auth';
+import { CurrentUser, ICurrentUser, Public } from '@lib/auth';
 import { JwtGuard } from '@lib/auth/guards/jwt.guard';
 
 @UseGuards(JwtGuard)
@@ -28,9 +28,9 @@ export class PostController {
     });
   }
 
-  // @Public();
-  // @Get(':id')
-  // getPostById(@Param('id', ParseUUIDPipe) id: string) {
-  //   return this.postFacade.queries.getOnePost(id);
-  // }
+  @Public()
+  @Get(':id')
+  getPostById(@Param('id', ParseUUIDPipe) id: string) {
+    return this.postFacade.queries.getOnePost(id);
+  }
 }
