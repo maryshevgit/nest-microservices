@@ -1,9 +1,14 @@
-import { Body, Controller, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Get,
+  Param,
+  ParseUUIDPipe,
+  Post,
+} from '@nestjs/common';
 import { PostFacade } from '@lib/post/application-services';
 import { CreatePostDto } from './dto';
 import { CurrentUser, ICurrentUser } from '@lib/auth';
-import { randomStringGenerator } from '@nestjs/common/utils/random-string-generator.util';
-import { randomUUID } from 'crypto';
 
 @Controller('post')
 export class PostController {
@@ -11,13 +16,18 @@ export class PostController {
 
   @Post()
   createPost(
-    // @CurrentUser() user: ICurrentUser,
+    @CurrentUser() user: ICurrentUser,
     @Body() createPostDto: CreatePostDto,
   ) {
     return this.postFacade.commands.createPost({
       ...createPostDto,
-      authorId: randomUUID(),
-      // authorId: user.userId,
+      authorId: user.userId,
     });
+  }
+
+  // @Public();
+  @Get(':id')
+  getPostById(@Param('id', ParseUUIDPipe) id: string) {
+    return this.postFacade.queries.getOnePost(id);
   }
 }
