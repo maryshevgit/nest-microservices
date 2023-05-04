@@ -23,10 +23,6 @@ const buttonTheme = cva('button', {
     },
   },
   compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }],
-  defaultVariants: {
-    intent: 'primary',
-    size: 'medium',
-  },
 });
 
 export interface ButtonProps
