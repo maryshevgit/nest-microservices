@@ -6,9 +6,15 @@ const linkTheme = cva('link', {
   variants: {
     intent: {
       primary: [
-        'text-white',
+        'text-inverted_primary',
         'cursor-pointer',
         'hover:text-amber-100',
+      ],
+      secondary: [
+        'text-inverted_secondary',
+      ],
+      red: [
+        'text-red',
       ],
     },
     size: {
@@ -32,12 +38,13 @@ export const AppLink: FC<LinkProps> = ({
   size,
   href,
   children,
-  ...props
+  ...otherProps
 }) => {
   return (
     <Link
       href={href}
       className={linkTheme({ intent, size, className })}
+      {...otherProps}
     >
       {children}
     </Link>
