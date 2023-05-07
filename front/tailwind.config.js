@@ -2,10 +2,21 @@ module.exports = {
   content: [
     './src/**/*.{js,ts,jsx,tsx}',
     './pages/*.tsx',
+    './app/**/*.tsx',
   ],
   theme: {
+    extend: {
+      transitionProperty: {
+        width: 'width',
+      },
+    },
     height: {
       navbar: 'var(--navbar-height)',
+    },
+    width: {
+      sidebar: 'var(--sidebar-width)',
+      sidebar_collapsed: 'var(--sidebar-width-collapsed)',
+      full: '100%',
     },
     colors: {
       primary: 'var(--primary-color)',

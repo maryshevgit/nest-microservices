@@ -1,7 +1,7 @@
 export const MainPage = () => {
   return (
     <div>
-      dsa
+      вфывфывфывфы
     </div>
   );
 };
