@@ -1,6 +1,6 @@
 'use client';
 
-import React, { ReactNode } from 'react';
+import React, { ReactNode, Suspense } from 'react';
 import { cx } from 'class-variance-authority';
 import { Navbar } from '@/widgets/navbar';
 import { Sidebar } from '@/widgets/sidebar';
@@ -19,9 +19,11 @@ const LayoutPage = ({ children, lng }: LayoutPageProps) => {
       <Navbar lng={lng} />
       <div className="flex">
         <Sidebar lng={lng} />
-        <main className="flex-1 p-3">
-          {children}
-        </main>
+        <Suspense fallback={<div>loading</div>}>
+          <main className="flex-1 p-3">
+            {children}
+          </main>
+        </Suspense>
       </div>
     </div>
   );

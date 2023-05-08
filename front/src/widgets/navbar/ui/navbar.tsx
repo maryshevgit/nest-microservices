@@ -12,8 +12,8 @@ export const Navbar = ({ className, lng }: NavbarProps) => {
   return (
     <div className="w-full h-10 bg-inverted flex items-center p-3 h-navbar">
       <div className="flex items-center gap-3 ml-auto">
-        <AppLink intent="secondary" href="/">{t('home')}</AppLink>
-        <AppLink intent="red" href="/about">{t('about')}</AppLink>
+        <AppLink intent="secondary" href={`/${lng}`}>{t('home')}</AppLink>
+        <AppLink intent="red" href={`/${lng}/about`}>{t('about')}</AppLink>
       </div>
     </div>
   );
