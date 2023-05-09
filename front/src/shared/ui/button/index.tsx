@@ -4,25 +4,55 @@ import { cva, VariantProps } from 'class-variance-authority';
 const buttonTheme = cva('button', {
   variants: {
     intent: {
-      primary: [
-        'bg-blue-500',
-        'text-white',
-        'border-transparent',
-        'hover:bg-blue-600',
+      clear: [
+        'p-0',
+        'border-none',
       ],
-      secondary: [
-        'bg-white',
-        'text-gray-800',
-        'border-gray-400',
-        'hover:bg-gray-100',
+      clear_inverted: [
+        'text-inverted_primary',
+      ],
+      outline: [
+        'p-1',
+        'text-primary',
+        'border',
+        'border-primary',
+        'border-solid',
+      ],
+      outline_red: [
+        'p-1',
+        'text-red',
+        'border',
+        'border-red',
+        'border-solid',
+      ],
+      background: [
+        'bg-color',
+        'text-primary',
+      ],
+      background_inverted: [
+        'bg-inverted',
+        'text-inverted_primary',
+      ],
+      disabled: [
+        'opacity-50',
+      ],
+      square: [
+        'p-0',
+      ],
+      full_width: [
+        'w-full',
       ],
     },
     size: {
-      small: ['text-sm', 'py-1', 'px-2'],
-      medium: ['text-base', 'py-2', 'px-4'],
+      medium: ['text-size_m', 'leading-line_m'],
+      large: ['text-size_l', 'leading-line_l'],
+      xl: ['text-size_xl', 'leading-line_xl'],
+      square_m: ['w-size_m', 'h-size_m'],
+      square_l: ['w-size_l', 'h-size_l'],
+      square_xl: ['w-size_xl', 'h-size_xl'],
     },
   },
-  compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }],
+  compoundVariants: [{ intent: 'clear', size: 'medium', class: 'uppercase' }],
 });
 
 export interface ButtonProps

@@ -6,22 +6,17 @@ const linkTheme = cva('link', {
   variants: {
     intent: {
       primary: [
-        'text-inverted_primary',
-        'cursor-pointer',
-        'hover:text-amber-100',
+        'text-primary',
       ],
       secondary: [
-        'text-inverted_secondary',
+        'text-inverted_primary',
       ],
       red: [
         'text-red',
       ],
     },
-    size: {
-      medium: ['text-xl'],
-    },
   },
-  compoundVariants: [{ intent: 'primary', size: 'medium', class: 'uppercase' }],
+  compoundVariants: [{ intent: 'primary', class: '' }],
 });
 
 interface AppLinkProps {
@@ -35,7 +30,6 @@ export interface LinkProps extends AppLinkProps, VariantProps<typeof linkTheme> 
 export const AppLink: FC<LinkProps> = ({
   className,
   intent,
-  size,
   href,
   children,
   ...otherProps
@@ -43,7 +37,7 @@ export const AppLink: FC<LinkProps> = ({
   return (
     <Link
       href={href}
-      className={linkTheme({ intent, size, className })}
+      className={linkTheme({ intent, className })}
       {...otherProps}
     >
       {children}

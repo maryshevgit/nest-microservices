@@ -19,7 +19,7 @@ export const ErrorPage = ({ lng }: ErrorPageProps) => {
       <h1>
         {t('Непредвиденная ошибка')}
       </h1>
-      <Button onClick={reloadPage}>
+      <Button onClick={reloadPage} intent="outline">
         {t('Обновить страницу')}
       </Button>
     </div>
