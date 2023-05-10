@@ -12,6 +12,7 @@
     "unit": "jest --config ./config/jest/jest.config.ts"
   },
   "dependencies": {
+    "@headlessui/react": "^1.7.14",
     "accept-language": "^3.0.18",
     "class-variance-authority": "^0.6.0",
     "graphql": "^16.6.0",

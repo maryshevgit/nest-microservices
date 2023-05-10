@@ -27,7 +27,7 @@ export const Sidebar = ({ lng }: SidebarProps) => {
     <div
       data-testid="sidebar"
       className={cx(
-        'h-[calc(100vh-50px)] w-1/5 bg-inverted relative transition-width',
+        'h-[calc(100vh-50px)] w-1/5 bg-inverted relative transition-width text-primary',
         `${collapsed ? 'w-sidebar_collapsed' : 'w-sidebar'}`,
       )}
     >

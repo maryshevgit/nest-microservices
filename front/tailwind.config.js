@@ -33,6 +33,8 @@ module.exports = {
     backgroundColor: {
       color: 'var(--bg-color)',
       inverted: 'var(--inverted-bg-color)',
+      black: 'black',
+      white: '#ffffff',
     },
     fontSize: {
       size_m: '16px',
