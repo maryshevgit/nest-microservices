@@ -14,7 +14,7 @@ export const Modal = ({ onClose, children, isOpen }: ModalProps) => {
 
   return (
     <Transition appear show={isOpen} as={Fragment}>
-      <Dialog as="div" className="relative z-10" onClose={onClose}>
+      <Dialog as="div" className="relative" onClose={onClose}>
         <Transition.Child
           as={Fragment}
           enter="ease-out duration-300"
@@ -24,10 +24,10 @@ export const Modal = ({ onClose, children, isOpen }: ModalProps) => {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-black bg-opacity-25" />
+          <div className="fixed inset-0 bg-black bg-opacity-25 z-overlay" />
         </Transition.Child>
 
-        <div className="fixed inset-0 overflow-y-auto">
+        <div className="fixed inset-0 overflow-y-auto z-modal">
           <div className="flex min-h-full items-center justify-center p-4 text-center text-primary">
             <Transition.Child
               as={Fragment}
