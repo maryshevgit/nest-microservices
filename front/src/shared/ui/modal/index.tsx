@@ -1,5 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { Fragment, ReactNode } from 'react';
+import { cx } from 'class-variance-authority';
+import { useTheme } from '@/shared/lib/hooks/useTheme';
 
 interface ModalProps {
   isOpen: boolean
@@ -8,9 +10,10 @@ interface ModalProps {
 }
 
 export const Modal = ({ onClose, children, isOpen }: ModalProps) => {
+  const { theme } = useTheme();
+
   return (
     <Transition appear show={isOpen} as={Fragment}>
-      {/* eslint-disable-next-line react/jsx-no-bind */}
       <Dialog as="div" className="relative z-10" onClose={onClose}>
         <Transition.Child
           as={Fragment}
@@ -36,7 +39,10 @@ export const Modal = ({ onClose, children, isOpen }: ModalProps) => {
               leaveTo="opacity-0 scale-95"
             >
               <Dialog.Panel
-                className="w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all bg-white"
+                className={cx(
+                  theme,
+                  'text-size_m leading-line_m font-main text-primary bg-color w-full max-w-md transform overflow-hidden rounded-2xl p-6 text-left align-middle shadow-xl transition-all',
+                )}
               >
                 {children}
               </Dialog.Panel>

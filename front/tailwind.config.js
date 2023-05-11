@@ -9,6 +9,10 @@ module.exports = {
         width: 'width',
       },
     },
+    zIndex: {
+      modal: 'var(--modal-z-index)',
+      overlay: 'var(--overlay-z-index)',
+    },
     height: {
       navbar: 'var(--navbar-height)',
       size_m: '24px',
@@ -28,7 +32,8 @@ module.exports = {
       secondary: 'var(--secondary-color)',
       inverted_primary: 'var(--inverted-primary-color)',
       inverted_secondary: 'var(--inverted-secondary-color)',
-      red: '#dc2626',
+      red_light: 'var(--red-light)',
+      red_dark: 'var(--red-dark)',
     },
     backgroundColor: {
       color: 'var(--bg-color)',
