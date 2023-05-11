@@ -8,6 +8,7 @@
 
 # testing
 /coverage
+/reports
 
 # next.js
 /.next/
@@ -34,7 +35,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-analyze
-reports
-storybook-static
-extractedTranslations
+
+# storybook
+/storybook-static
+
+# i18n
+/extractedTranslations
+
+/analyze

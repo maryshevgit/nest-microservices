@@ -1,3 +1,7 @@
+'use client';
+
+import { Counter } from '@/entities/counter';
+
 interface AboutPageProps {
   lng: string
 }
@@ -5,7 +9,7 @@ interface AboutPageProps {
 export const AboutPage = ({ lng }: AboutPageProps) => {
   return (
     <div>
-      dasdsa
+      <Counter />
     </div>
   );
 };
