@@ -1,5 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { Fragment, ReactNode } from 'react';
+import {
+  Fragment, ReactNode, useEffect, useState,
+} from 'react';
 import { cx } from 'class-variance-authority';
 import { useTheme } from '@/shared/lib/hooks/useTheme';
 
@@ -7,10 +9,21 @@ interface ModalProps {
   isOpen: boolean
   onClose: () => void
   children: ReactNode
+  lazy?: boolean
 }
 
-export const Modal = ({ onClose, children, isOpen }: ModalProps) => {
+export const Modal = ({
+  onClose, children, isOpen, lazy,
+}: ModalProps) => {
   const { theme } = useTheme();
+
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    if (isOpen) setIsMounted(true);
+  }, [isOpen]);
+
+  if (lazy && !isMounted) return null;
 
   return (
     <Transition appear show={isOpen} as={Fragment}>

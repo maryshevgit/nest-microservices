@@ -1,5 +1,7 @@
 {
   "title": "nest-next",
   "Непредвиденная ошибка": "Unexpected error",
-  "Обновить страницу": "Reload page"
+  "Обновить страницу": "Reload page",
+  "Введите username": "Enter username",
+  "Введите password": "Enter password"
 }
