@@ -5,12 +5,14 @@ import { UserRepository } from '@lib/user/providers';
 import { ApiError } from '@lib/errors';
 import { LoginDto } from '../../../src/api/controllers/auth/dto';
 import * as bcrypt from 'bcrypt';
+import { JwtService } from '@nestjs/jwt';
 
 @Injectable()
 export class AuthService {
   constructor(
     private readonly userFacade: UserFacade,
     private readonly userRepository: UserRepository,
+    private readonly jwtService: JwtService,
   ) {}
 
   async validateUser(email: string) {
@@ -38,6 +40,9 @@ export class AuthService {
       existUser.password,
     );
     if (!validatePassword) throw new BadRequestException(ApiError.WRONG_DATA);
-    return existUser;
+
+    const payload = { email: dto.email };
+    const token = await this.jwtService.signAsync(payload);
+    return { ...existUser, token };
   }
 }

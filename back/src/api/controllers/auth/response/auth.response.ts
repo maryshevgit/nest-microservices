@@ -25,6 +25,9 @@ export class AuthResponse implements IUser {
   })
   password: string;
 
+  @ApiProperty({ description: 'Token пользователя', type: 'string' })
+  token: string;
+
   @ApiProperty({
     description: 'Дата создания пользователя',
     type: 'string',
