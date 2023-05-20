@@ -1,4 +1,4 @@
-import { BadRequestException, Injectable } from '@nestjs/common';
+import { Injectable, UnauthorizedException } from '@nestjs/common';
 import { UserFacade } from '@lib/user/application-services';
 import { CreateUserDto } from '@lib/user/application-services/commands/dto/create-user.dto';
 import { UserRepository } from '@lib/user/providers';
@@ -15,33 +15,34 @@ export class AuthService {
     private readonly jwtService: JwtService,
   ) {}
 
-  async validateUser(email: string) {
-    return email === 'test@mail.ru';
+  async validateUser(payload) {
+    return { ...payload.user };
   }
 
   async registerUser(user: CreateUserDto) {
     const existEmail = await this.userRepository.findByEmail(user.email);
-    if (existEmail) throw new BadRequestException(ApiError.USER_EMAIL_EXIST);
+    if (existEmail) throw new UnauthorizedException(ApiError.USER_EMAIL_EXIST);
 
     const existUsername = await this.userRepository.findByUsername(
       user.username,
     );
     if (existUsername)
-      throw new BadRequestException(ApiError.USER_USERNAME_EXIST);
+      throw new UnauthorizedException(ApiError.USER_USERNAME_EXIST);
     return await this.userFacade.commands.createUser(user);
   }
 
   async login(dto: LoginDto) {
     const existUser = await this.userRepository.findByEmail(dto.email);
-    if (!existUser) throw new BadRequestException(ApiError.WRONG_DATA);
+    if (!existUser) throw new UnauthorizedException(ApiError.WRONG_DATA);
 
     const validatePassword = await bcrypt.compare(
       dto.password,
       existUser.password,
     );
-    if (!validatePassword) throw new BadRequestException(ApiError.WRONG_DATA);
+    if (!validatePassword) throw new UnauthorizedException(ApiError.WRONG_DATA);
 
-    const payload = { email: dto.email };
+    const payload = { email: dto.email, userId: existUser.id };
+    console.log(payload);
     const token = await this.jwtService.signAsync(payload);
     return { ...existUser, token };
   }
