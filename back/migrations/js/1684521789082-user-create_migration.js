@@ -36,16 +36,16 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 exports.__esModule = true;
-exports.PostCreateMigration1682273913671 = void 0;
-var PostCreateMigration1682273913671 = /** @class */ (function () {
-    function PostCreateMigration1682273913671() {
-        this.name = 'PostCreateMigration1682273913671';
+exports.UserCreateMigration1684521789082 = void 0;
+var UserCreateMigration1684521789082 = /** @class */ (function () {
+    function UserCreateMigration1684521789082() {
+        this.name = 'UserCreateMigration1684521789082';
     }
-    PostCreateMigration1682273913671.prototype.up = function (queryRunner) {
+    UserCreateMigration1684521789082.prototype.up = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, queryRunner.query("CREATE TABLE \"posts\" (\"id\" uuid NOT NULL, \"title\" character varying NOT NULL, \"message\" character varying NOT NULL, \"author_id\" character varying NOT NULL, \"is_published\" boolean NOT NULL, \"created_at\" character varying NOT NULL, \"updated_at\" character varying NOT NULL, CONSTRAINT \"PK_2829ac61eff60fcec60d7274b9e\" PRIMARY KEY (\"id\"))")];
+                    case 0: return [4 /*yield*/, queryRunner.query("CREATE TABLE \"users\" (\"id\" uuid NOT NULL, \"firstname\" character varying NOT NULL, \"username\" character varying NOT NULL, \"password\" character varying NOT NULL, \"email\" character varying NOT NULL, \"created_at\" character varying NOT NULL, CONSTRAINT \"PK_a3ffb1c0c8416b9fc6f907b7433\" PRIMARY KEY (\"id\"))")];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
@@ -53,11 +53,11 @@ var PostCreateMigration1682273913671 = /** @class */ (function () {
             });
         });
     };
-    PostCreateMigration1682273913671.prototype.down = function (queryRunner) {
+    UserCreateMigration1684521789082.prototype.down = function (queryRunner) {
         return __awaiter(this, void 0, void 0, function () {
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, queryRunner.query("DROP TABLE \"posts\"")];
+                    case 0: return [4 /*yield*/, queryRunner.query("DROP TABLE \"users\"")];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
@@ -65,6 +65,6 @@ var PostCreateMigration1682273913671 = /** @class */ (function () {
             });
         });
     };
-    return PostCreateMigration1682273913671;
+    return UserCreateMigration1684521789082;
 }());
-exports.PostCreateMigration1682273913671 = PostCreateMigration1682273913671;
+exports.UserCreateMigration1684521789082 = UserCreateMigration1684521789082;
