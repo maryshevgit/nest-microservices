@@ -12,15 +12,14 @@ export class UserAdapter implements UserRepository {
     @InjectRepository(UserEntity)
     private readonly userRepository: Repository<UserEntity>,
   ) {}
-  //
-  // async hashPassword(password) {
-  //   return bcrypt.hash(password, 10);
-  // }
-  //
-  // async createUser(user): Promise<UserAggregate> {
-  //   user.password = await this.hashPassword(dto.password);
-  //   await this.userRepository.create(user);
-  // }
+
+  async findByEmail(email: string): Promise<IUser | null> {
+    return this.userRepository.findOneBy({ email });
+  }
+
+  async findByUsername(username: string): Promise<IUser | null> {
+    return this.userRepository.findOneBy({ username });
+  }
 
   async findOne(id: string): Promise<UserAggregate> {
     const existUser = await this.userRepository
