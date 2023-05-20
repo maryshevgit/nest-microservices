@@ -25,7 +25,7 @@ import { UserAdapter, UserRepository } from './providers';
       useClass: UserAdapter,
     },
   ],
-  exports: [UserFacade],
+  exports: [UserFacade, UserRepository],
 })
 export class UserModule implements OnModuleInit {
   constructor(
