@@ -7,9 +7,66 @@ input CreatePostInput {
   title: String!
 }
 
+input CreateUserInput {
+  email: String!
+  firstname: String!
+  password: String!
+  username: String!
+}
+
+type CreateUserResponse {
+  """Дата создания пользователя"""
+  createdAt: String!
+
+  """Email пользователя"""
+  email: String!
+
+  """Имя пользователя"""
+  firstname: String!
+
+  """ID поста"""
+  id: ID!
+
+  """Пароль пользователя"""
+  password: String!
+
+  """Логин пользователя"""
+  username: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type LoginResponse {
+  """Дата создания пользователя"""
+  createdAt: String!
+
+  """Email пользователя"""
+  email: String!
+
+  """Имя пользователя"""
+  firstname: String!
+
+  """ID поста"""
+  id: ID!
+
+  """Пароль пользователя"""
+  password: String!
+
+  """Token пользователя"""
+  token: String!
+
+  """Логин пользователя"""
+  username: String!
+}
+
 type Mutation {
   createPost(createPostInput: CreatePostInput!): PostResponse!
+  createUser(createUserInput: CreateUserInput!): CreateUserResponse!
   deletePost(id: String!): Boolean!
+  login(loginInput: LoginInput!): LoginResponse!
   setPublishedPost(id: String!): PostResponse!
   updatePost(updatePostInput: UpdatePostInput!): PostResponse!
 }

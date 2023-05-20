@@ -1,2 +1,2 @@
-export * from './post.response';
-export * from './posts.response';
+export * from './post';
+export * from './auth';

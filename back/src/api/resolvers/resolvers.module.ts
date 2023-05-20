@@ -1,7 +1,9 @@
 import { Module } from '@nestjs/common';
-import { PostResolver } from './post/post.resolver';
+import { PostResolver, AuthResolver } from './resolvers-controllers';
+import { AuthModule } from '@lib/auth';
 
 @Module({
-  providers: [PostResolver],
+  imports: [AuthModule],
+  providers: [PostResolver, AuthResolver],
 })
 export class ResolversModule {}
