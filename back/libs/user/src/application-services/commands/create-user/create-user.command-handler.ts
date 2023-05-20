@@ -11,20 +11,6 @@ export class CreateUserCommandHandler
 {
   constructor(private readonly userRepository: UserRepository) {}
   async execute({ user }: CreateUserCommand): Promise<UserAggregate> {
-    const existEmail = await this.userRepository.findByEmail(user.email);
-    if (existEmail)
-      throw new BadRequestException(
-        'Пользователь с таким email уже существует',
-      );
-
-    const existUsername = await this.userRepository.findByUsername(
-      user.username,
-    );
-    if (existUsername)
-      throw new BadRequestException(
-        'Пользователь с таким username уже существует',
-      );
-
     user.password = await bcrypt.hash(user.password, 10);
 
     const userAggregate = UserAggregate.create(user);
