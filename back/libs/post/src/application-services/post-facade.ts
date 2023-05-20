@@ -14,7 +14,6 @@ import { GetPostQuery } from '@lib/post/application-services/queries/get-post/ge
 import { GetPostQueryHandler } from '@lib/post/application-services/queries/get-post/get-post.query-handler';
 import { GetPostsQuery } from '@lib/post/application-services/queries/get-posts/get-posts.query';
 import { GetPostsQueryHandler } from '@lib/post/application-services/queries/get-posts/get-posts.query-handler';
-import { PostAggregate } from '@lib/post';
 
 @Injectable()
 export class PostFacade {
