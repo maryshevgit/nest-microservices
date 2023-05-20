@@ -2,7 +2,7 @@ import { Field, ID, ObjectType } from '@nestjs/graphql';
 import { IUser } from '@lib/user/domain';
 
 @ObjectType()
-export class CreateUserResponse implements IUser {
+export class CreateUserResponse implements Omit<IUser, 'password'> {
   @Field(() => ID, { description: 'ID поста' })
   id: string;
 
@@ -11,9 +11,6 @@ export class CreateUserResponse implements IUser {
 
   @Field({ description: 'Имя пользователя' })
   firstname: string;
-
-  @Field({ description: 'Пароль пользователя' })
-  password: string;
 
   @Field({ description: 'Логин пользователя' })
   username: string;

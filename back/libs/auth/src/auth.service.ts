@@ -42,8 +42,9 @@ export class AuthService {
     if (!validatePassword) throw new UnauthorizedException(ApiError.WRONG_DATA);
 
     const payload = { email: dto.email, userId: existUser.id };
-    console.log(payload);
     const token = await this.jwtService.signAsync(payload);
+
+    delete existUser.password;
     return { ...existUser, token };
   }
 }

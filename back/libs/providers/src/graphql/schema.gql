@@ -27,9 +27,6 @@ type CreateUserResponse {
   """ID поста"""
   id: ID!
 
-  """Пароль пользователя"""
-  password: String!
-
   """Логин пользователя"""
   username: String!
 }
@@ -51,9 +48,6 @@ type LoginResponse {
 
   """ID поста"""
   id: ID!
-
-  """Пароль пользователя"""
-  password: String!
 
   """Token пользователя"""
   token: String!
