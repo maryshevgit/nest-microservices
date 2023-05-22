@@ -1,8 +1,8 @@
 import { Field, InputType } from '@nestjs/graphql';
-import { CreateUserDto } from '../../../controllers/auth/dto';
+import { IUser } from '@lib/user/domain';
 
 @InputType()
-export class CreateUserInput implements CreateUserDto {
+export class CreateUserInput implements Omit<IUser, 'id' | 'createdAt'> {
   @Field()
   email: string;
 
