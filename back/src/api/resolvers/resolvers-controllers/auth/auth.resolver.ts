@@ -9,7 +9,7 @@ export class AuthResolver {
 
   @Mutation(() => CreateUserResponse)
   async createUser(@Args('createUserInput') createUserInput: CreateUserInput) {
-    return this.authService.registerUser(createUserInput);
+    return await this.authService.registerUser(createUserInput);
   }
 
   @Mutation(() => LoginResponse)

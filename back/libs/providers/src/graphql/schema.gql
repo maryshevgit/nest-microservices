@@ -63,6 +63,7 @@ type Mutation {
   login(loginInput: LoginInput!): LoginResponse!
   setPublishedPost(id: String!): PostResponse!
   updatePost(updatePostInput: UpdatePostInput!): PostResponse!
+  updateUser(updateUserInput: UpdateUserInput!): UpdateUserResponse!
 }
 
 type PaginatedPosts {
@@ -107,4 +108,24 @@ input UpdatePostInput {
   id: ID!
   message: String
   title: String
+}
+
+input UpdateUserInput {
+  email: String
+  firstname: String
+  username: String
+}
+
+type UpdateUserResponse {
+  """Email пользователя"""
+  email: String!
+
+  """Имя пользователя"""
+  firstname: String!
+
+  """ID поста"""
+  id: ID!
+
+  """Логин пользователя"""
+  username: String!
 }
