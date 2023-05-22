@@ -17,6 +17,14 @@ export class UserAdapter implements UserRepository {
     return this.userRepository.findOneBy({ email });
   }
 
+  async delete(id: string): Promise<boolean> {
+    const result = await this.userRepository.delete(id).catch((err) => {
+      this.logger.error(err);
+      return false;
+    });
+    return !!result;
+  }
+
   async findByUsername(username: string): Promise<IUser | null> {
     return this.userRepository.findOneBy({ username });
   }

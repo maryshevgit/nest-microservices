@@ -21,4 +21,9 @@ export class UserResolver {
       id: currentUser.userId,
     });
   }
+
+  @Mutation(() => Boolean)
+  async deleteUser(@Args('id') id: string) {
+    return this.userFacade.commands.deleteUser(id);
+  }
 }

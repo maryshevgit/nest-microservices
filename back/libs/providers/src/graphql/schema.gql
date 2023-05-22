@@ -60,6 +60,7 @@ type Mutation {
   createPost(createPostInput: CreatePostInput!): PostResponse!
   createUser(createUserInput: CreateUserInput!): CreateUserResponse!
   deletePost(id: String!): Boolean!
+  deleteUser(id: String!): Boolean!
   login(loginInput: LoginInput!): LoginResponse!
   setPublishedPost(id: String!): PostResponse!
   updatePost(updatePostInput: UpdatePostInput!): PostResponse!
