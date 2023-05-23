@@ -27,6 +27,7 @@
     "migration:revert": "npm run typeorm:config migration:revert"
   },
   "dependencies": {
+    "@golevelup/nestjs-rabbitmq": "^3.6.0",
     "@nestjs/apollo": "^11.0.5",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.3.1",
