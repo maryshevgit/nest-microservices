@@ -8,12 +8,6 @@ import {
 import { applyDecorators, Type } from '@nestjs/common';
 
 export class ResponseWithPagination<T> extends PaginationDto {
-  @ApiProperty({ description: 'Количество строк', type: 'number' })
-  limit: number;
-
-  @ApiProperty({ description: 'Пропуск строк', type: 'number' })
-  offset: number;
-
   @ApiProperty({ description: 'Всего записией в бд', type: 'number' })
   total!: number;
 
@@ -34,7 +28,7 @@ export const ApiOkResponsePaginated = <DataDto extends Type<unknown>>(
     ApiOkResponse({
       schema: {
         allOf: [
-          { $ref: getSchemaPath(Response) },
+          { $ref: getSchemaPath(ResponseWithPagination) },
           {
             properties: {
               data: {
