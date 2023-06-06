@@ -1,6 +1,5 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { PostFacade } from '@lib/post/application-services';
-import { CreatePostDto } from '@lib/post/application-services/commands/dto';
 import { RabbitRPC } from '@golevelup/nestjs-rabbitmq';
 import { CreatePostContract } from '@amqp/amqp-contracts';
 
@@ -26,7 +25,18 @@ export class ConsumerService {
       };
     } catch (error) {
       this.logger.error(error);
-      return null;
+      return {
+        ...requestMessage,
+        payload: null,
+        error: this.errorHandler(error),
+      };
     }
+  }
+
+  private errorHandler(error: any) {
+    return {
+      code: error?.name || 'error',
+      message: error?.message || JSON.stringify(error),
+    };
   }
 }
