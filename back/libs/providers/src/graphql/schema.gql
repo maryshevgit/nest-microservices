@@ -7,11 +7,64 @@ input CreatePostInput {
   title: String!
 }
 
+input CreateUserInput {
+  email: String!
+  firstname: String!
+  password: String!
+  username: String!
+}
+
+type CreateUserResponse {
+  """Дата создания пользователя"""
+  createdAt: String!
+
+  """Email пользователя"""
+  email: String!
+
+  """Имя пользователя"""
+  firstname: String!
+
+  """ID поста"""
+  id: ID!
+
+  """Логин пользователя"""
+  username: String!
+}
+
+input LoginInput {
+  email: String!
+  password: String!
+}
+
+type LoginResponse {
+  """Дата создания пользователя"""
+  createdAt: String!
+
+  """Email пользователя"""
+  email: String!
+
+  """Имя пользователя"""
+  firstname: String!
+
+  """ID поста"""
+  id: ID!
+
+  """Token пользователя"""
+  token: String!
+
+  """Логин пользователя"""
+  username: String!
+}
+
 type Mutation {
   createPost(createPostInput: CreatePostInput!): PostResponse!
+  createUser(createUserInput: CreateUserInput!): CreateUserResponse!
   deletePost(id: String!): Boolean!
+  deleteUser(id: String!): Boolean!
+  login(loginInput: LoginInput!): LoginResponse!
   setPublishedPost(id: String!): PostResponse!
   updatePost(updatePostInput: UpdatePostInput!): PostResponse!
+  updateUser(updateUserInput: UpdateUserInput!): UpdateUserResponse!
 }
 
 type PaginatedPosts {
@@ -56,4 +109,24 @@ input UpdatePostInput {
   id: ID!
   message: String
   title: String
+}
+
+input UpdateUserInput {
+  email: String
+  firstname: String
+  username: String
+}
+
+type UpdateUserResponse {
+  """Email пользователя"""
+  email: String!
+
+  """Имя пользователя"""
+  firstname: String!
+
+  """ID поста"""
+  id: ID!
+
+  """Логин пользователя"""
+  username: String!
 }

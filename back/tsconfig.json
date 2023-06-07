@@ -59,6 +59,12 @@
       ],
       "@lib/user/*": [
         "libs/user/src/*"
+      ],
+      "@amqp/amqp-contracts": [
+        "libs/amqp-contracts/src"
+      ],
+      "@amqp/amqp-contracts/*": [
+        "libs/amqp-contracts/src/*"
       ]
     }
   }

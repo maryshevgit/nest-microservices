@@ -10,7 +10,7 @@ export class AuthController {
   constructor(private readonly authService: AuthService) {}
 
   @ApiOperation({ summary: 'Регистрация пользователя' })
-  @ApiOkResponse({ type: AuthResponse })
+  @ApiOkResponse({ type: CreateUserDto })
   @Post('register')
   async register(@Body() user: CreateUserDto) {
     return await this.authService.registerUser(user);
