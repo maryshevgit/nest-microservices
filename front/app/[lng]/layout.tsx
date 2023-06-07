@@ -4,10 +4,10 @@ import { ReactNode } from 'react';
 import { languages } from '../i18n/settings';
 import { ThemeProvider } from '@/app/providers/theme-provider';
 import { Theme } from '@/shared/const/theme';
-import '@/app/styles/globals.css';
 import LayoutPage from './layout-page';
 import { useTranslation } from '../i18n';
 import { ErrorBoundary } from '@/app/providers/error-boundary';
+import '@/app/styles/globals.css';
 
 export async function generateStaticParams() {
   return languages.map((lng) => ({ lng }));

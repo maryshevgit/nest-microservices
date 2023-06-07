@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import { useTranslation } from '@app/i18n/client';
 import { languages } from '@app/i18n/settings';
 import { AppLink } from '@/shared/ui/app-link';
@@ -8,7 +8,7 @@ interface LangSwitcherProps {
   short: boolean
 }
 
-export const LangSwitcher = ({ lng, short }: LangSwitcherProps) => {
+export const LangSwitcher = memo(({ lng, short }: LangSwitcherProps) => {
   const { t } = useTranslation(lng, 'sidebar');
 
   return (
@@ -25,4 +25,4 @@ export const LangSwitcher = ({ lng, short }: LangSwitcherProps) => {
       })}
     </>
   );
-};
+});

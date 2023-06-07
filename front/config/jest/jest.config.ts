@@ -6,6 +6,8 @@ export default {
       isolatedModules: true,
     },
   },
+  collectCoverage: true,
+  coverageProvider: 'v8',
   clearMocks: true,
   testEnvironment: 'jsdom',
   coveragePathIgnorePatterns: [

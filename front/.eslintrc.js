@@ -8,6 +8,7 @@ module.exports = {
     'plugin:react/recommended',
     'airbnb',
     'plugin:i18next/recommended',
+    'plugin:@tanstack/eslint-plugin-query/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -24,6 +25,7 @@ module.exports = {
     'react-hooks',
     'ulbi-tv-plugin',
     'unused-imports',
+    '@tanstack/query',
   ],
   rules: {
     'react/jsx-indent': ['error', 2],
