@@ -27,6 +27,7 @@
     "migration:revert": "npm run typeorm:config migration:revert"
   },
   "dependencies": {
+    "@golevelup/nestjs-rabbitmq": "^3.6.0",
     "@nestjs/apollo": "^11.0.5",
     "@nestjs/common": "^9.0.0",
     "@nestjs/config": "^2.3.1",
@@ -105,7 +106,8 @@
       "^@lib/errors(|/.*)$": "<rootDir>/libs/errors/src/$1",
       "^@lib/shared(|/.*)$": "<rootDir>/libs/shared/src/$1",
       "^@lib/auth(|/.*)$": "<rootDir>/libs/auth/src/$1",
-      "^@lib/user(|/.*)$": "<rootDir>/libs/user/src/$1"
+      "^@lib/user(|/.*)$": "<rootDir>/libs/user/src/$1",
+      "^@amqp/amqp-contracts(|/.*)$": "<rootDir>/libs/amqp-contracts/src/$1"
     }
   }
 }

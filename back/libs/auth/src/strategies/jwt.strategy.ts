@@ -4,6 +4,7 @@ import { ConfigService } from '@nestjs/config';
 import { AuthService } from '../auth.service';
 import { ICurrentUser } from '../interfaces';
 import { ExtractJwt, Strategy } from 'passport-jwt';
+import { ApiError } from '@lib/errors';
 
 @Injectable()
 export class JwtStrategy extends PassportStrategy(Strategy) {
@@ -18,11 +19,9 @@ export class JwtStrategy extends PassportStrategy(Strategy) {
     });
   }
   async validate(payload: ICurrentUser): Promise<ICurrentUser> {
-    const user = await this.authService.validateUser(payload.email);
+    const user = await this.authService.validateUser(payload);
     if (!user) {
-      throw new UnauthorizedException(
-        `User by email "${payload.email}" not found`,
-      );
+      throw new UnauthorizedException(ApiError.USER_NOT_FOUND);
     }
     return payload;
   }
